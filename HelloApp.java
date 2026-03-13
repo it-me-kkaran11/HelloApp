@@ -1,37 +1,45 @@
 /**
- * HelloApp.java – UC2: Display "Hello" using Command-Line Argument
+ * HelloApp.java
  *
- * This program demonstrates how to accept input from the command line
- * and use it in a Java program. The program reads the first argument
- * passed when executing the program and prints a greeting message
- * using that name.
+ * UC1 : Display "Hello World" to the console
+ * UC2 : Accept a user's name as a command-line argument
+ * UC3 : Display a default greeting if no name is provided
  *
- * Example:
- * Input:  java HelloApp Alice
- * Output: Hello, Alice!
+ * Usage:
+ * java HelloApp [name]
+ *
+ * If a name is provided  -> Hello, Name!
+ * If no name is provided -> Hello, World!
  *
  * @author Karunakaran R
- * @version 1.0
- * @since UC2
+ * @version 3.0
+ * @since UC1
  */
 
 /**
- * Key Concepts of UC2:
- * 1. Command-Line Arguments: Accessing user input via args[] parameter
- * 2. String Concatenation: Combining strings using the + operator
- * 3. System.out.println(): Output to console
- * 4. Array Indexing: Accessing the first argument with args[0]
+ * Key Concepts:
+ * 1. Default Values: Providing a fallback value when no input is given
+ * 2. Command-Line Arguments: Accessing user input via args[] parameter
+ * 3. Conditional Statements: Using if conditions
+ * 4. Boolean Logic: Controlling program flow
+ * 5. Array Length: Checking number of command-line arguments
  */
 
 public class HelloApp {
 
     public static void main(String[] args) {
 
-        // Retrieve the first command-line argument (user name)
-        String name = args[0];
+        // Default name if no argument is provided
+        String name = "World";
 
-        // Print greeting message with the provided name
+        // Check if the user has provided a command-line argument
+        if (args.length > 0) {
+
+            // Use the first argument as the name
+            name = args[0];
+        }
+
+        // Display greeting message
         System.out.println("Hello, " + name + "!");
-
     }
 }
