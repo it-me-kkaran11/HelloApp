@@ -1,45 +1,55 @@
 /**
  * HelloApp.java
  *
- * UC1 : Display "Hello World" to the console
- * UC2 : Accept a user's name as a command-line argument
- * UC3 : Display a default greeting if no name is provided
+ * UC1 : Display "Hello World"
+ * UC2 : Accept a user's name using command-line argument
+ * UC3 : Provide default greeting if no name is provided
+ * UC4 : Display greeting for multiple command-line arguments
  *
  * Usage:
- * java HelloApp [name]
+ * java HelloApp Alice Bob Charlie
  *
- * If a name is provided  -> Hello, Name!
- * If no name is provided -> Hello, World!
+ * Output:
+ * Hello, Alice, Bob, Charlie!
  *
  * @author Karunakaran R
- * @version 3.0
+ * @version 4.0
  * @since UC1
  */
 
 /**
  * Key Concepts:
- * 1. Default Values: Providing a fallback value when no input is given
- * 2. Command-Line Arguments: Accessing user input via args[] parameter
- * 3. Conditional Statements: Using if conditions
- * 4. Boolean Logic: Controlling program flow
- * 5. Array Length: Checking number of command-line arguments
+ * 1. Array Handling – Processing multiple command-line arguments
+ * 2. For Loop – Iterating through args array
+ * 3. StringBuilder – Efficient string construction
+ * 4. String Concatenation – Building final greeting message
  */
 
 public class HelloApp {
 
     public static void main(String[] args) {
 
-        // Default name if no argument is provided
-        String name = "World";
-
-        // Check if the user has provided a command-line argument
-        if (args.length > 0) {
-
-            // Use the first argument as the name
-            name = args[0];
+        // Default greeting when no arguments are provided
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+            return;
         }
 
-        // Display greeting message
-        System.out.println("Hello, " + name + "!");
+        // Use StringBuilder to build the greeting message
+        StringBuilder names = new StringBuilder();
+
+        // Loop through all command-line arguments
+        for (int i = 0; i < args.length; i++) {
+
+            names.append(args[i]);
+
+            // Add comma between names except the last one
+            if (i < args.length - 1) {
+                names.append(", ");
+            }
+        }
+
+        // Print final greeting
+        System.out.println("Hello, " + names.toString() + "!");
     }
 }
