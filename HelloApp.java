@@ -11,7 +11,7 @@ public class HelloArguments {
                 greeting.append(name).append(", ");
             }
             
-            // Remove the trailing comma and space using substring
+            // Remove the comma & space using substring
             String finalGreeting = greeting.substring(0, greeting.length() - 2);
             
             System.out.println(finalGreeting);
