@@ -5,7 +5,6 @@ public class HelloArguments {
             System.out.println("Hello, World!");
         } else {
             StringBuilder greeting = new StringBuilder("Hello, ");
-            
             // Enhanced for loop to append each argument with a comma
             for (String name : args) {
                 greeting.append(name).append(", ");
